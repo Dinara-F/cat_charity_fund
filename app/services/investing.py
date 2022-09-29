@@ -21,22 +21,26 @@ async def investing(
     )
     projects = projects.scalars().all()
     donations = donations.scalars().all()
-    p = 0
-    d = 0
-    while p < len(projects) and d < len(donations):
+    p_index = 0
+    d_index = 0
+    while p_index < len(projects) and d_index < len(donations):
         investment = min(
-            projects[p].full_amount - projects[p].invested_amount,
-            donations[d].full_amount - donations[d].invested_amount
+            projects[p_index].full_amount -
+            projects[p_index].invested_amount,
+            donations[d_index].full_amount -
+            donations[d_index].invested_amount
         )
-        projects[p].invested_amount += investment
-        donations[d].invested_amount += investment
-        if projects[p].invested_amount == projects[p].full_amount:
-            setattr(projects[p], 'fully_invested', True)
-            setattr(projects[p], 'close_date', datetime.now())
-            p += 1
-        if donations[d].invested_amount == donations[d].full_amount:
-            setattr(donations[d], 'fully_invested', True)
-            setattr(donations[d], 'close_date', datetime.now())
-            d += 1
+        projects[p_index].invested_amount += investment
+        donations[d_index].invested_amount += investment
+        if (projects[p_index].invested_amount ==
+                projects[p_index].full_amount):
+            setattr(projects[p_index], 'fully_invested', True)
+            setattr(projects[p_index], 'close_date', datetime.now())
+            p_index += 1
+        if (donations[d_index].invested_amount ==
+                donations[d_index].full_amount):
+            setattr(donations[d_index], 'fully_invested', True)
+            setattr(donations[d_index], 'close_date', datetime.now())
+            d_index += 1
     session.add_all(projects + donations)
     await session.commit()
