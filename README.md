@@ -1,29 +1,32 @@
 # QRKot
-Сервис для поддержки котиков!
-## Команда разработчиков
-Динара Фатехова <https://github.com/Dinara-F>
-## Технологии
-- Python
-- FastAPI
-- SQLAlchemy
+A training project of the application API for the QRKot Cat Charitable Foundation. Its purpose is to collect and distribute donations among various projects.
+## Developers
+- [Dinara Fatekhova](https://github.com/Dinara-F)
+## Technologies
+- [Python](https://www.python.org/)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [SQLAlchemy](http://www.sqlalchemy.org/)
+- [Alembic](https://alembic.sqlalchemy.org/)
+- [FastAPI Users](https://fastapi-users.github.io/fastapi-users/)
+- [Uvicorn](https://www.uvicorn.org/)
 ## Инструкции
-Клонировать репозиторий:
+Clone the repository:
 ```
 git clone
 ```
-Создать и активировать виртуальное окружение:
+Create and activate virtual environment:
 ```
 python -m venv venv
 ```
-Установить зависимости из файла requirements.txt:
+Install requirements.txt:
 ```
 pip install -r requirements.txt
 ``` 
-Применить миграции
+Run migrations
 ```
 alembic upgrade head
 ```
-Запустить сервер из корневой папки проекта
+Run server
 ```
 uvicorn app.main:app --reload
 ```
