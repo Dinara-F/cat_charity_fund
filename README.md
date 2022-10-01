@@ -9,7 +9,7 @@ A training project of the application API for the QRKot Cat Charitable Foundatio
 - [Alembic](https://alembic.sqlalchemy.org/)
 - [FastAPI Users](https://fastapi-users.github.io/fastapi-users/)
 - [Uvicorn](https://www.uvicorn.org/)
-## Инструкции
+## Instructions
 Clone the repository:
 ```
 git clone
